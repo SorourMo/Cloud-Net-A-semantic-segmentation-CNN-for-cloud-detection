@@ -33,7 +33,6 @@ Run ```python main_train.py``` to train the network on 38-Cloud training set. Th
 │------------├──Training
 
 │------------------├──Train blue
-
                       .
                       .
                       .
@@ -43,7 +42,6 @@ Run ```python main_train.py``` to train the network on 38-Cloud training set. Th
 │------------├──Test
 
 │------------------├──Test blue
-
                       .
                       .
                       .
@@ -53,7 +51,7 @@ Run ```python main_train.py``` to train the network on 38-Cloud training set. Th
 │------------├──Predictions
 
 
-The training patches are resized to 192*192 before each iteration. Then, four corresponding spectral bands are stacked together to create a 192*192*4 array. A '''.log''' file is generated to keep track of the loss values. The loss function used for training is the soft Jaccard loss.
+The training patches are resized to 192 * 192 before each iteration. Then, four corresponding spectral bands are stacked together to create a 192 * 192 * 4 array. A ```.log``` file is generated to keep track of the loss values. The loss function used for training is the soft Jaccard loss.
 
 ## Testing Cloud-Net on [38-Cloud Test Set](https://github.com/SorourMo/38-Cloud-A-Cloud-Segmentation-Dataset)
 Run ```python main_test.py``` for getting the predictions. The weights pretrained on 38-Cloud training set is available at [here: Cloud-Net_trained_on_38-Cloud_training_patches.h5](https://vault.sfu.ca/index.php/s/2Xk6ZRbwfnjrOtu). Relocate this file in the dataset directory as shown above. The predicted cloud masks will be generated in the "Predictions" folder. Then, use the [Evaluation over 38-Cloud Dataset section](https://github.com/SorourMo/38-Cloud-A-Cloud-Segmentation-Dataset#evaluation-over-38-cloud-dataset) to get the numerical results. 

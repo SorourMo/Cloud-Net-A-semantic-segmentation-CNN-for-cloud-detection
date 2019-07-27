@@ -16,11 +16,11 @@ URL: https://ieeexplore.ieee.org/document/8664462
 ## Training Cloud-Net on [38-Cloud Training Set](https://github.com/SorourMo/38-Cloud-A-Cloud-Segmentation-Dataset)
 
 ### Requirements
-The network has been tested with the following setup:
-Windows 10, CentOS Linux release 7.5.1804 
-Python 3.6
-Tensorflow 1.9.0, 1.10.0, 1.12.0
-Keras 2.2.4
+The network has been tested with the following setup:<br/>
+Windows 10, CentOS Linux release 7.5.1804<br/>
+Python 3.6<br/>
+Tensorflow 1.9.0, 1.10.0, 1.12.0<br/>
+Keras 2.2.4<br/>
 Scikit-image 0.15.0
 
 ### Scripts
@@ -32,7 +32,7 @@ Run ```python main_train.py``` to train the network on 38-Cloud training set. Th
 
 │------------├──Training
 
-│------------------├──Train blue
+│------------------├──Train blue<br/>
                       .
                       .
                       .
@@ -41,7 +41,7 @@ Run ```python main_train.py``` to train the network on 38-Cloud training set. Th
 
 │------------├──Test
 
-│------------------├──Test blue
+│------------------├──Test blue<br/>
                       .
                       .
                       .

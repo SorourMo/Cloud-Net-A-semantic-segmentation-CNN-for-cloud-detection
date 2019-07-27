@@ -1,4 +1,59 @@
 # Cloud-Net: A semantic segmentation CNN for cloud detection
 
 
-Cloud-Net is an end-to-end cloud detection algorithm for Landsat 8 imagery. However, it can be used for other semantic segmentation applications, too. 
+Cloud-Net is an end-to-end cloud detection algorithm for Landsat 8 imagery. However, it can be used for other semantic segmentation applications, too. It gets a four-channel RGBNir image of Landsat 8 and predicts the location of clouds. 
+
+Cloud-Net has been introduced in the following IGARSS paper:
+
+S. Mohajerani and P. Saeedi. "Cloud-Net: An End-to-end Cloud Detection Algorithm for Landsat 8 Imagery". (forthcoming) 2019, to appear at IEEE International Geoscience and Remote Sensing Symposium (IGARSS).
+URL: https://arxiv.org/pdf/1901.10077.pdf
+
+Cloud-Net is a modification of CPAdv-Net, which is proposed in the following paper:
+
+S. Mohajerani and P. Saeedi, “Shadow detection in single RGB images using a context preserver convolutional neural network trained by multiple adversarial examples,” IEEE Transactions on Image Processing, pp. 1–1, 2019.
+URL: https://ieeexplore.ieee.org/document/8664462
+
+## Training Cloud-Net on [38-Cloud Training Set](https://github.com/SorourMo/38-Cloud-A-Cloud-Segmentation-Dataset)
+
+### Requirements
+The network has been tested with the following setup:
+Windows 10, CentOS Linux release 7.5.1804 
+Python 3.6
+Tensorflow 1.9.0, 1.10.0, 1.12.0
+Keras 2.2.4
+Scikit-image 0.15.0
+
+### Scripts
+Run ```python main_train.py``` to train the network on 38-Cloud training set. The path to the dataset folder should be set at ```GLOBAL_PATH = 'path to 38-cloud dataset'```. The directory tree for the dataset looks like as following:
+
+├──38-Cloud dataset
+
+│------------├──Cloud-Net_trained_on_38-Cloud_training_patches.h5
+
+│------------├──Training
+
+│------------------├──Train blue
+
+                      .
+                      .
+                      .
+
+│------------------├──training_patches_38-cloud.csv
+
+│------------├──Test
+
+│------------------├──Test blue
+
+                      .
+                      .
+                      .
+
+│------------------├──test_patches_38-cloud.csv
+
+│------------├──Predictions
+
+
+The training patches are resized to 192*192 before each iteration. Then, four corresponding spectral bands are stacked together to create a 192*192*4 array. A '''.log''' file is generated to keep track of the loss values. The loss function used for training is the soft Jaccard loss.
+
+## Testing Cloud-Net on [38-Cloud Test Set](https://github.com/SorourMo/38-Cloud-A-Cloud-Segmentation-Dataset)
+Run ```python main_test.py``` for getting the predictions. The weights pretrained on 38-Cloud training set is available at [here: Cloud-Net_trained_on_38-Cloud_training_patches.h5](https://vault.sfu.ca/index.php/s/2Xk6ZRbwfnjrOtu). Relocate this file in the dataset directory as shown above. The predicted cloud masks will be generated in the "Predictions" folder. Then, use the [Evaluation over 38-Cloud Dataset section](https://github.com/SorourMo/38-Cloud-A-Cloud-Segmentation-Dataset#evaluation-over-38-cloud-dataset) to get the numerical results. 

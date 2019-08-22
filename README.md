@@ -10,8 +10,8 @@ URL: https://arxiv.org/pdf/1901.10077.pdf
 
 Cloud-Net is a modification of CPAdv-Net, which is proposed in the following paper:
 
-S. Mohajerani and P. Saeedi, “Shadow detection in single RGB images using a context preserver convolutional neural network trained by multiple adversarial examples,” IEEE Transactions on Image Processing, pp. 1–1, 2019.
-URL: https://ieeexplore.ieee.org/document/8664462
+S. Mohajerani and P. Saeedi, "Shadow Detection in Single RGB Images Using a Context Preserver Convolutional Neural Network Trained by Multiple Adversarial Examples," in IEEE Transactions on Image Processing, vol. 28, no. 8, pp. 4117-4129, Aug. 2019.
+doi: 10.1109/TIP.2019.2904267, URL: https://ieeexplore.ieee.org/document/8664462
 
 ## Training Cloud-Net on [38-Cloud Training Set](https://github.com/SorourMo/38-Cloud-A-Cloud-Segmentation-Dataset)
 

@@ -39,7 +39,7 @@ def get_input_image_names(list_names, directory_name, if_train=True):
             dir_type_name = "train"
             fl_img = []
             nmask = 'gt_' + filenames
-            fl_msk = directory_name + '/train_gts/' + '{}.TIF'.format(nmask)
+            fl_msk = directory_name + '/train_gt/' + '{}.TIF'.format(nmask)
             list_msk.append(fl_msk)
 
         else:

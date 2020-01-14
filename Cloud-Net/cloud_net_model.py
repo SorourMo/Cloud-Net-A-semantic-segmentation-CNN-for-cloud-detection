@@ -17,6 +17,7 @@ def bn_relu(input_tensor):
 
 def contr_arm(input_tensor, filters, kernel_size):
     """It adds a feedforward signal to the output of two following conv layers in contracting path
+       TO DO: remove keras.layers.add and replace it with add only
     """
 
     x = Conv2D(filters, kernel_size, padding='same')(input_tensor)
@@ -127,6 +128,7 @@ def add_block_exp_path(input_tensor1, input_tensor2, input_tensor3):
 
 def improve_ff_block4(input_tensor1, input_tensor2 ,input_tensor3, input_tensor4, pure_ff):
     """It improves the skip connection by using previous layers feature maps
+       TO DO: shrink all of ff blocks in one function/class
     """
 
     for ix in range(1):

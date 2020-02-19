@@ -1,5 +1,6 @@
 # Cloud-Net: A semantic segmentation CNN for cloud detection
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cloud-net-an-end-to-end-cloud-detection-1/semantic-segmentation-on-38-cloud)](https://paperswithcode.com/sota/semantic-segmentation-on-38-cloud?p=cloud-net-an-end-to-end-cloud-detection-1)
 
 Cloud-Net is an end-to-end cloud detection algorithm for Landsat 8 imagery. However, it can be used for other semantic segmentation applications, too. It gets a four-channel RGBNir image of Landsat 8 and predicts the location of clouds. 
 

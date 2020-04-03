@@ -1,6 +1,6 @@
 import numpy as np
 import skimage
-from skimage.transform import resize
+import skimage.transform as trans
 
 """
 Some lines borrowed from: https://www.kaggle.com/sashakorekov/end-to-end-resnet50-with-tta-lb-0-93
@@ -9,14 +9,14 @@ Some lines borrowed from: https://www.kaggle.com/sashakorekov/end-to-end-resnet5
 
 def rotate_clk_img_and_msk(img, msk):
     angle = np.random.choice((4, 6, 8, 10, 12, 14, 16, 18, 20))
-    img_o = skimage.transform.rotate(img, angle, resize=False, preserve_range=True, mode='symmetric')
-    msk_o = skimage.transform.rotate(msk, angle, resize=False, preserve_range=True, mode='symmetric')
+    img_o = trans.rotate(img, angle, resize=False, preserve_range=True, mode='symmetric')
+    msk_o = trans.rotate(msk, angle, resize=False, preserve_range=True, mode='symmetric')
     return img_o, msk_o
 
 def rotate_cclk_img_and_msk(img, msk):
     angle = np.random.choice((-20, -18, -16, -14, -12, -10, -8, -6, -4))
-    img_o = skimage.transform.rotate(img, angle, resize=False, preserve_range=True, mode='symmetric')
-    msk_o = skimage.transform.rotate(msk, angle, resize=False, preserve_range=True, mode='symmetric')
+    img_o = trans.rotate(img, angle, resize=False, preserve_range=True, mode='symmetric')
+    msk_o = trans.rotate(msk, angle, resize=False, preserve_range=True, mode='symmetric')
     return img_o, msk_o
 
 def flipping_img_and_msk(img, msk):
@@ -33,8 +33,8 @@ def zoom_img_and_msk(img, msk):
     zh = int(np.round(zoom_factor * h))
     zw = int(np.round(zoom_factor * w))
 
-    img = resize(img, (zh, zw), preserve_range=True, mode='symmetric')
-    msk = resize(msk, (zh, zw), preserve_range=True, mode='symmetric')
+    img = trans.resize(img, (zh, zw), preserve_range=True, mode='symmetric')
+    msk = trans.resize(msk, (zh, zw), preserve_range=True, mode='symmetric')
     region = np.random.choice((0, 1, 2, 3, 4))
 
     # zooming out
@@ -64,6 +64,6 @@ def zoom_img_and_msk(img, msk):
             outmsk = msk[(zh // 2 - marh):(zh // 2 + marh), (zw // 2 - marw):(zw // 2 + marw)]
 
     # to make sure the output is in the same size of the input
-    img_o = resize(outimg, (h, w), preserve_range=True, mode='symmetric')
-    msk_o = resize(outmsk, (h, w), preserve_range=True, mode='symmetric')
+    img_o = trans.resize(outimg, (h, w), preserve_range=True, mode='symmetric')
+    msk_o = trans.resize(outmsk, (h, w), preserve_range=True, mode='symmetric')
     return img_o, msk_o
